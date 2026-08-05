@@ -162,5 +162,21 @@ Frontend will run at: `http://localhost:3000`
 
 ---
 
+## Vercel Deployment
+
+This project is pre-configured with `vercel.json` for 1-click deployment on [Vercel](https://vercel.com).
+
+### Option 1: Vercel GitHub Integration (Recommended)
+1. Go to [vercel.com/new](https://vercel.com/new).
+2. Connect your GitHub account and select the **`nivedrajeeshvp/employee-payslip`** repository.
+3. Click **Deploy**. Vercel will automatically build both the React frontend and Flask serverless backend.
+
+### Option 2: Vercel CLI
+```bash
+npx vercel
+```
+
+---
+
 ## License
 MIT License. Created for software engineering portfolio.
