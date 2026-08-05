@@ -1,18 +1,27 @@
 {
-  "buildCommand": "cd frontend && npm install && CI=false npm run build",
-  "outputDirectory": "frontend/build",
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/backend/app.py"
+    "services": {
+        "frontend": {
+            "root": "frontend",
+            "framework": "create-react-app"
+        },
+        "backend": {
+            "root": "backend"
+        }
     },
-    {
-      "source": "/uploads/(.*)",
-      "destination": "/backend/app.py"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+    "rewrites": [
+        {
+            "source": "/api(/.*)?",
+            "destination": {
+                "type": "service",
+                "service": "backend"
+            }
+        },
+        {
+            "source": "/(.*)",
+            "destination": {
+                "type": "service",
+                "service": "frontend"
+            }
+        }
+    ]
 }
