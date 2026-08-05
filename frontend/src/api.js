@@ -1,6 +1,10 @@
-import axios from 'axios';
+const getBaseUrl = () => {
+  if (process.env.REACT_APP_API_URL) return process.env.REACT_APP_API_URL;
+  if (process.env.NODE_ENV === 'production') return '/api';
+  return 'http://127.0.0.1:5000/api';
+};
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:5000/api';
+const API_BASE_URL = getBaseUrl();
 
 const api = axios.create({
   baseURL: API_BASE_URL,
